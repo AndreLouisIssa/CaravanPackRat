@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "net.caravanpackrat.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+    "MixinTitleScreen"
+  ],
+  "mixins": [
+
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

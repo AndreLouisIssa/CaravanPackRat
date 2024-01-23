@@ -1,0 +1,9 @@
+{
+  "item.caravanpackrat.caravan_depot": "Caravan Depot",
+  "block.caravanpackrat.caravan_depot": "Caravan Depot",
+  "itemGroup.caravanpackrat.creative_tab": "Caravan Pack Rat",
+  "key.caravanpackrat.open_caravan_deposit_menu": "Open Caravan Deposit Menu",
+  "category.caravanpackrat.caravan_menus": "Caravan Pack Rat",
+  "container.caravanpackrat.caravan_deposit_menu": "Caravan Deposit",
+  "container.caravanpackrat.caravan_depot": "Caravan Depot"
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/spruce_slab",
+  "textures": {
+    "bottom": "caravanpackrat:block/caravan_depot_bottom",
+    "side": "caravanpackrat:block/caravan_depot_side",
+    "top": "caravanpackrat:block/caravan_depot_top"
+  }
+}
