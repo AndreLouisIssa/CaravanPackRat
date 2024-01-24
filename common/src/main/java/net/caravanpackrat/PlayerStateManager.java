@@ -93,14 +93,18 @@ public class PlayerStateManager extends PersistentState {
     }
 
     public static PlayerState getPlayerState(LivingEntity player) {
-        PlayerStateManager serverState = getServerState(Objects.requireNonNull(player.getWorld().getServer()));
+        MinecraftServer server = player.getWorld().getServer();
+        if (server == null) return null;
+        PlayerStateManager serverState = getServerState(server);
 
         // Either get the player by the uuid, or we don't have data for him yet, make a new player state
         return serverState.players.computeIfAbsent(player.getUuid(), uuid -> new PlayerState());
     }
 
     public static PlayerState getPlayerState(World world, UUID uuid) {
-        PlayerStateManager serverState = getServerState(Objects.requireNonNull(world.getServer()));
+        MinecraftServer server = world.getServer();
+        if (server == null) return null;
+        PlayerStateManager serverState = getServerState(server);
 
         // Either get the player by the uuid, or we don't have data for him yet, make a new player state
         return serverState.players.computeIfAbsent(uuid, _uuid -> new PlayerState());

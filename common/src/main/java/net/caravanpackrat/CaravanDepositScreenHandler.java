@@ -27,8 +27,14 @@ public class CaravanDepositScreenHandler extends ScreenHandler {
             World world = player.getWorld();
             if (!world.isClient) {
                 PlayerState playerState = PlayerStateManager.getPlayerState(player);
-                if (playerState.items != null) {
-                    playerState.items.add(item);
+                if (playerState != null && playerState.items != null) {
+                    try {
+                        playerState.items.add(item);
+                        markDirty();
+                    } catch (UnsupportedOperationException e) {
+                        playerInventory.insertStack(item);
+                        playerInventory.markDirty();
+                    }
                 }
             }
         }
@@ -84,6 +90,6 @@ public class CaravanDepositScreenHandler extends ScreenHandler {
     @Override
     public boolean canUse(PlayerEntity player) {
         PlayerState playerState = PlayerStateManager.getPlayerState(player);
-        return playerState.depot != null;
+        return playerState != null && playerState.depot != null;
     }
 }
