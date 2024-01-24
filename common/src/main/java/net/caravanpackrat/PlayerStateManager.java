@@ -58,8 +58,10 @@ public class PlayerStateManager extends PersistentState {
 
             if (playerNbt.contains("Items")) {
                 int n = ((NbtList) Objects.requireNonNull(playerNbt.get("Items"))).size();
-                playerState.items = DefaultedList.ofSize(n, ItemStack.EMPTY);
-                Inventories.readNbt(playerNbt, playerState.items);
+                DefaultedList<ItemStack> items = DefaultedList.ofSize(n, ItemStack.EMPTY);
+                Inventories.readNbt(playerNbt, items);
+                playerState.items.clear();
+                playerState.items.addAll(items);
             }
 
             UUID uuid = UUID.fromString(key);
